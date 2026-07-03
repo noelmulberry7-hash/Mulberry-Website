@@ -12,19 +12,31 @@
 
   <!-- NAV -->
   <header>
-    <div class="nav-inner">
-      <div class="main-logo">
-        <a href="index.html"><img src="logo.png" alt="Mulberry Digital Solutions"></a>
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="active">Contact</a>
-        <a href="https://maps.app.goo.gl/JUvYcrm8jPYvd14GA" target="_blank" rel="noopener" class="nav-maps">Maps</a>
-      </nav>
+  <div class="nav-inner">
+
+    <div class="main-logo">
+      <a href="index.html">
+        <img src="logo.png" alt="Mulberry Digital Solutions">
+      </a>
     </div>
-  </header>
+
+    <!-- Mobile hamburger -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="mobileNav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="https://maps.app.goo.gl/JUvYcrm8jPYvd14GA" target="_blank" rel="noopener" class="nav-maps">Maps</a>
+    </nav>
+
+  </div>
+</header>
 
   <!-- PAGE HERO -->
   <section class="page-hero">
@@ -121,6 +133,24 @@
       </div>
     </div>
   </footer>
+
+  <script>
+const menuToggle = document.getElementById("menuToggle");
+const nav = document.getElementById("mobileNav");
+
+menuToggle.addEventListener("click", () => {
+  nav.classList.toggle("open");
+  menuToggle.classList.toggle("active");
+});
+
+// close when clicking a link
+document.querySelectorAll("#mobileNav a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menuToggle.classList.remove("active");
+  });
+});
+</script>
 
 </body>
 </html>
